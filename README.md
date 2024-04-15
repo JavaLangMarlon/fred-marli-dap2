@@ -5,8 +5,7 @@
 
 ## Project structure
 - there is no project structure, since the *Praktikum* does not have one
-
-The relation between files here and their corresponding exercise sheet should be intuitive from the file names.
+- The relation between files here and their corresponding exercise sheet should be intuitive from the file names.
 
 ## Git
 
