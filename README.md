@@ -8,4 +8,14 @@
 
 The relation between files here and their corresponding exercise sheet should be intuitive from the file names.
 
-**PLEASE USE PULL-REQUESTS SO THE OTHER PEOPLE HAVE THE CHANCE TO REVIEW YOUR CODE**
+## Git
+
+- **PLEASE USE PULL-REQUESTS SO THE OTHER PEOPLE HAVE THE CHANCE TO REVIEW YOUR CODE!!!**
+- I would suggest that we name our branches like that:
+```
+*name*/*name of exercise sheet*
+```
+- e.g.
+```
+marli/B1
+```
