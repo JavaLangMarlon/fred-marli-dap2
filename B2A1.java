@@ -83,18 +83,11 @@ public class B2A1 {
         /**********************************************************/
         /**** Kurzaufgabe 2.1: ****/
 
-        // here, we iterate over the array and check if any elements violate the order
-        for (int i = 1; i < numbers.length; i++) {
-            // here, we check for the violation, if it exists, we can return false
-            if (numbers[i] < numbers[i-1]) {
-                return false;
-            }
-        }
-        // we need to loop over the whole array to make sure the array is sorted, eventually we can return true
+        // we can use the code from our helper function for the assertions, thus, we do not have to write the same code twice
+        return isSequenceSorted(numbers, 0, numbers.length);
 
         /**********************************************************/
 
-        return true;
     }
 
     /**
@@ -111,6 +104,8 @@ public class B2A1 {
 
         // here, we implemented the insertion-sort-algorithm analogous to how it was introduced in the lecture
         for (int i = 1; i < numbers.length; i++) {
+            assert isSequenceSorted(numbers, 0, i); // loop invariant of the loop
+
             int key = numbers[i];
             int j;
             // we can use a for loop here to make the code a bit shorter
@@ -125,9 +120,29 @@ public class B2A1 {
         }
 
         // assert correctness of the algorithm
-        assert isSorted(numbers) : "insertion sort did not work correctly";
+        assert isSorted(numbers);
 
         /**********************************************************/
 
+    }
+
+    /**
+     * this method allows us to only assert the right order of an array on a sequence
+     *
+     * @param numbers the array we want to use
+     * @param left the first parameter of the sequence we want to assert
+     * @param right the first parameter that is not anymore part of the sequence
+     * @returns true if the sequence is sorted, false if it is not
+     */
+    static boolean isSequenceSorted(int[] numbers, int left, int right) {
+        // here, we iterate over the array and check if any elements violate the order
+        for (int i = left + 1; i < right; i++) {
+            // here, we check for the violation, if it exists, we can return false
+            if (numbers[i] < numbers[i-1]) {
+                return false;
+            }
+        }
+        // we need to loop over the whole array to make sure the array is sorted, eventually we can return true
+        return true;
     }
 }

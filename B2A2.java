@@ -105,8 +105,11 @@ public class B2A2 {
         if (left + 1 < right) {
             int m = (left + right)/2;
             mergeSort(target, source, left, m);
+            assert B2A1.isSequenceSorted(target, left, m); // assert merge sort worked correctly
             mergeSort(target, source, m, right);
+            assert B2A1.isSequenceSorted(target, m, right); // assert merge sort worked correctly
             merge(target, source, left, m, right);
+            assert B2A1.isSequenceSorted(target, left, right); // assert merge worked correctly
         }
         /**********************************************************/
     }
@@ -118,6 +121,7 @@ public class B2A2 {
         // right interval and the right parameter is exclusive. This is necessary because
         // in the merge-method the length is given as the right parameter
         for (int k = left; k < right; k++) {
+            assert B2A1.isSequenceSorted(target, left, k); // loop invariant
             // setting a last parameter to infinity is not possible as we only have limited
             // space in our tmpArray, thus we do something different. We add two if checks
             // here to check if the parameters are exceeding their bound. Then, we can infer
@@ -144,5 +148,22 @@ public class B2A2 {
         // array so that we can use our sorting progress in the next merge iterations
         System.arraycopy(target, left, source, left, right - left);
     }
+
+
+//     A couple words about exercise 3:
+//
+//     As we can see in the code, the run time of Merge-Sort is not dependent on the inner structure of the input array.
+//     Thus, it always has a run time of O(n log n).
+//
+//     Insertion-Sort on the other hand has a run time which is dependent on the inner structure of the input array.
+//     Its worst case happens when it is reversed. Then, it has a run time of O(n^2). This is also the average run time
+//     of the algorithm. However, if the array is already sorted, the algorithm has its best case. Then, the run time
+//     linear.
+//
+//     We can see these effects if we increase the size of our inputs. If the arrays are sorted, the insertion sort will
+//     eventually perform better than the merge sort algorithm. However, if we randomly choose arrays or even arrays which
+//     are sorted in descending order, the merge sort algorithm will perform significantly better.
+//     However, we can only be certain that we will see this behavior if we let n grow to a significantly higher number.
+
 
 }
