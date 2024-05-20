@@ -5,6 +5,8 @@ import java.time.Duration;
 
 class B5A1 {
 
+    public static int compareCount = 0;
+
     static void swap(int[] data, int i, int j) {
         // see previous exercises
         int tmp = data[i];
@@ -50,10 +52,11 @@ class B5A1 {
         int pivot = data[r];
         int i = l - 1;
         for (int j = l; j <= r - 1; j++) {
-            if (data[j] >= pivot) {
+            if (data[j] <= pivot) {
                 i++;
                 swap(data, i, j);
             }
+            compareCount++;
         }
         swap(data, ++i, r);
         assert isPartitioned(data, l, r, i, pivot);
@@ -120,6 +123,7 @@ class B5A1 {
         Instant finish = Instant.now();
         long time = Duration.between(start, finish).toMillis();
         System.out.println("Time: " + time);
+        System.out.println("Compare Count: " + compareCount);
         assert isSorted(arr);
         if (arr.length < 20) {
             System.out.printf("After sorting:\n%s\n", Arrays.toString(arr));
