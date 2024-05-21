@@ -1,54 +1,12 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-class B6A2 {
+
+public class B6A2 {
 
 
     //this three methods are only here because my compiler is throwing errors when using the methods from B6A1
-    public static int getMin(int[] data) {
-        /**********************************************************/
-        /****                Langaufgabe 6.1:                  ****/
-        int min = data[0];
 
-        for(int i = 1; i < data.length; i++){
-            if(data[i] < min){
-                min = data[i];
-            }
-        }
-
-        /**********************************************************/
-        return min;
-    }
-
-    public static int getMax(int[] data) {
-        /**********************************************************/
-        /****                Langaufgabe 6.1:                  ****/
-        int max = data[0];
-
-        for(int i = 1; i < data.length; i++){
-            if(data[i] > max){
-                max = data[i];
-            }
-        }
-
-        /**********************************************************/
-        return max;
-    }
-
-    public static int[] count(int[] data, int min, int max) {
-
-        int C[] = new int[max - min + 1];
-
-        /**********************************************************/
-        /****                Langaufgabe 6.1:                  ****/
-
-        for(int i = 0; i < data.length; i++){
-            C[data[i]-min] = C[data[i]-min]+1;
-        }
-
-        /**********************************************************/
-        return C;
-    }
 
     public static void sortByByte(int[] input, int l, int r, int b) {
         /**********************************************************/
@@ -64,8 +22,8 @@ class B6A2 {
         }
 
         //creating a frequency array for the modulo values initialized above
-        int min = getMin(help);
-        int[] frequencies = count(help, min, getMax(help));
+        int min = B6A1.getMin(help);
+        int[] frequencies = B6A1.count(help, min, B6A1.getMax(help));
 
         //calculating the positions depending on the frequency like shown in counting sort
         for(int i = frequencies.length-2; i >= 0; i--){

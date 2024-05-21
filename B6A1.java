@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-class B6A1 {
+public class B6A1 {
     public static int getMin(int[] data) {
         /**********************************************************/
         /****                Langaufgabe 6.1:                  ****/
