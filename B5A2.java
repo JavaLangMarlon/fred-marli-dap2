@@ -47,7 +47,8 @@ class B5A2 {
         return true;
     }
 
-    // l,r inclusive -> partition data[l,r]
+    // l,r inclusive -> partition data[l,r
+
     public static int[] partition(int[] data, int l, int r) {
 
         /**********************************************************/
