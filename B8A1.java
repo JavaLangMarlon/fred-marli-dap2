@@ -5,7 +5,7 @@ import java.util.Arrays;
 class B8A1 {
 
     /**********************************************************/
-    /**** Longaufgabe 8.1: ****/
+    /**** Langaufgabe 8.1: ****/
     class Node {
         int key;
         Node left;
@@ -23,7 +23,7 @@ class B8A1 {
 
     public B8A1(int[] array) {
         /**********************************************************/
-        /**** Longaufgabe 8.1: ****/
+        /**** Langaufgabe 8.1: ****/
         root = null;
         for (int i = 0; i < array.length; i++) {
             add(array[i]);
@@ -31,7 +31,7 @@ class B8A1 {
         height = getHeight(root);
         /**********************************************************/
     }
-
+    
     private int getHeight(Node root) {
         if (root == null) {
             return 0;
@@ -44,11 +44,11 @@ class B8A1 {
 
     public void add(int v) {
         /**********************************************************/
-        /**** Longaufgabe 8.1: ****/
+        /**** Langaufgabe 8.1: ****/
         root = addRecursively(root, v);
         /**********************************************************/
     }
-    //Helper function to add newly created Node with integer key Recursively into BST
+    //Helper function to add newly created Node with integer key recursively into BST
     private Node addRecursively(Node root, int v) {
         if(root == null){
             root = new Node(v);
